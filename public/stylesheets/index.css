@@ -1,0 +1,16 @@
+.banner{
+    height: 200px;
+}
+
+.icon{
+    font-size: 40px;
+}
+
+.icon:hover{
+    background: #f2f4f8;
+}
+
+.active{
+    background: #f2f4f8;
+    border: 1px solid #e1e6ef;
+}
