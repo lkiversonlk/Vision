@@ -2,7 +2,7 @@
     height: 200px;
 }
 
-.icon{
+.icon span{
     font-size: 40px;
 }
 
@@ -10,7 +10,3 @@
     background: #f2f4f8;
 }
 
-.active{
-    background: #f2f4f8;
-    border: 1px solid #e1e6ef;
-}
