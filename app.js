@@ -76,7 +76,7 @@ passport.use(new LocalStrategy(
                 if (docs.length == 0) {
                     done(null, false, {message: "incorrect password or non-existed usernmae"});
                 } else {
-                    done(null, user._id);
+                    done(null, docs[0]._id);
                 }
             }
         });

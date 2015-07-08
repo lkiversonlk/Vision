@@ -4,7 +4,7 @@
 
 var utils = {
     login : function(req, res, next){
-        if(req.user){
+        if(req.user && !req.user_info){
             var dao = req.app.get("dao");
             dao.get("users", {
                 id : req.user

@@ -16,7 +16,7 @@ body
                     | AdLeida
             div.collapse.navbar-collapse
                 ul.nav.navbar-nav.navbar-right
-                    if !user
+                    if !user_info
                         li.dropdown
                             a.dropdown-toggle(data-toggle="dropdown",href="#", data-target="login-form", aria-haspopup="true",aria-expanded="false")
                                 | 登录
@@ -35,6 +35,11 @@ body
                         li
                             a(href="/users/register")
                                 |注册
+                    else
+                        li.dropdown
+                            a
+                                | #{user_info.name}
+
 
     div(style="min-height:600px")
         block content
