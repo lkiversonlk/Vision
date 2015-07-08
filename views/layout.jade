@@ -16,35 +16,25 @@ body
                     | AdLeida
             div.collapse.navbar-collapse
                 ul.nav.navbar-nav.navbar-right
-                    li.dropdown
-                        a.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true",aria-expanded="false")
-                            if user
-                                if user.nickname
-                                    | #{user.nickname}
-                                else
-                                    | 请设置名称
-                            else
-                                | 未登录
-                        if user
-                            ul.dropdown-menu
-                                li
-                                    a(href="/users/")
-                                        | 个人信息
-                                li
-                                    a(href="/puttings/")
-                                        | 投放管理
-                                li
-                                    a(href="/assets")
-                                        | 账户充值
-                                li.divider(role="separator")
-                                li
-                                    a(href="/users/signout")
-                                        | 注销
-                        else
-                            ul.dropdown-menu
-                                li
-                                    a(href="/")
-                                        | 登录
+                    if !user
+                        li.dropdown
+                            a.dropdown-toggle(data-toggle="dropdown",href="#", data-target="login-form", aria-haspopup="true",aria-expanded="false")
+                                | 登录
+                                string.caret
+                            div#login-form.dropdown-menu
+                                form.form-horizontal(method="post", action="/users/login", accept-charset="UTF-8",style="margin:10px")
+                                    fieldset
+                                        input#username.form-control.input-md(name="username",placeholder="请输入账户名", type="text")
+                                        input#password.form-control.input-md(name="password", placeholder="请输入密码", type="password")
+                                        div.spacing
+                                            a
+                                                small
+                                                    | 忘记密码?
+                                        button#login.btn.btn-primary.col-md-5.col-xs-5.form-control(type="submit")
+                                            | 登录
+                        li
+                            a(href="/users/register")
+                                |注册
 
     div(style="min-height:600px")
         block content

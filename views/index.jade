@@ -1,35 +1,3 @@
 extends layout
 
 block content
-    link(rel='stylesheet', href="/stylesheets/index.css")
-    div.container-fluid
-        div.row.banner
-            img(style="width:100%;height:100%", src="/images/front-page-background.jpg")
-
-    div.divider
-
-    div.container
-        div.row
-            div.col-md-4.col-sm-6.col-xs-12.text-center
-                div.icon.btn
-                    span.glyphicon.glyphicon-usd.class-icon
-                div
-                    | 充值
-            div.col-md-4.col-sm-6.col-xs-12.text-center
-                div.icon.btn
-                    span.glyphicon.glyphicon-list.class-icon
-                div
-                    | 账户
-            div.col-md-4.col-sm-6.col-xs-12.text-center
-                div.icon.btn
-                    span.glyphicon.glyphicon-play-circle.class-icon
-                div
-                    | 发布
-
-    div.divider
-
-    div
-        ul#puttings-list
-
-    script(src="/javascripts/lib/jade.js")
-    script(src='/javascripts/index.js')

@@ -1,0 +1,23 @@
+.banner{
+    height: 200px;
+}
+
+.icon span{
+    font-size: 40px;
+}
+
+.icon:hover{
+    background: #f2f4f8;
+}
+
+.putting-date{
+    float: right;
+}
+
+.putting-state{
+    float: right;
+}
+
+#puttings-list li span{
+    margin-left: 20px;
+}
