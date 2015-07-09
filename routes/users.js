@@ -66,5 +66,17 @@ router.get("/logout", function(req, res){
     res.redirect("/");
 });
 
+router.get("/put", function(req, res){
+    utils.loadUserInfo(req, function(error, user_info){
+        if(error){
+            res.redirect("/");
+        }else{
+            var data = {
+                user_info : user_info
+            };
+            res.render('put', data);
+        }
+    });
+});
 module.exports = router;
 

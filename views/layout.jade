@@ -11,12 +11,23 @@ html
 body
     div.navbar.navbar-default
         div.container
-            a(href="/")
-                span.navbar-brand
+            div.navbar-header
+                button.navbar-toggle.collapsed(type="button",data-toggle="collapse", data-target=".navbar-collapse", aria-controls="bs-navbar", aria-expanded="false")
+                    span.sr-only
+                        | Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+
+                a(href="/").navbar-brand
                     | AdLeida
-            div.collapse.navbar-collapse
+
+            nav.collapse.navbar-collapse
                 ul.nav.navbar-nav.navbar-right
                     if !user_info
+                        li
+                            a(href="/users/register")
+                                | 注册
                         li.dropdown
                             a.dropdown-toggle(data-toggle="dropdown",href="#", data-target="login-form", aria-haspopup="true",aria-expanded="false")
                                 | 登录
@@ -32,14 +43,10 @@ body
                                                     | 忘记密码?
                                         button#login.btn.btn-primary.col-md-5.col-xs-5.form-control(type="submit")
                                             | 登录
-                        li
-                            a(href="/users/register")
-                                |注册
                     else
                         li.dropdown
                             a
                                 | #{user_info.name}
-
 
     div(style="min-height:600px")
         block content

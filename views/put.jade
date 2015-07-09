@@ -1,0 +1,19 @@
+//
+   Created by kliu on 09/07/2015.
+
+extends layout
+
+block content
+    link(rel='stylesheet', href="/stylesheets/put.css")
+    div.container
+        div.row
+            div.col-md-8.col-sm-8.col-sm-offset.col-xs-12
+                div#screen-map
+            button#select_gis_screens.col-md-2.col-md-offset-2.col-sm-2.col-xs-4.btn.btn-primary
+                | 开始选取
+
+    script(src="http://api.map.baidu.com/api?v=1.5&ak=mYCvhgZoPh1bXmYVH7hQy0Wb")
+    link(rel="stylesheet", href="/javascripts/lib/DrawingManager_min.css")
+    script(src="/javascripts/lib/DrawingManager_min.js")
+    script(src="/javascripts/lib/screenMap.js")
+    script(src="/javascripts/put.js")
