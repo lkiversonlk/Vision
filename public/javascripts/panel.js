@@ -81,4 +81,17 @@ var options = {
 var chart = new Chart(ctx).Line(data, options);
 
 
+var html = Templates['putting-list-item2']({
+    puttings :[
+        {
+            name : "test"
+        },
+        {
+            name : "sdfd"
+        }
+    ]
+});
+
+$("#puttings-list").html(html);
+
 

@@ -36,3 +36,5 @@ idea
 config.yaml
 
 *.nedb
+
+public/templates/*.js

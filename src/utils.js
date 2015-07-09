@@ -3,25 +3,19 @@
  */
 
 var utils = {
-    login : function(req, res, next){
-        if(req.user && !req.user_info){
-            var dao = req.app.get("dao");
-            dao.get("users", {
+    loadUserInfo : function(req, dao, callback){
+        if(req.user){
+            dao.get('users', {
                 id : req.user
-            }, function(error,docs){
-                if(error){
-                    res.render("error", {message : "服务器出了点问题"});
+            }, function(error, docs){
+                if(error || docs.length == 0){
+                    callback({'error' : 'user id ' + req.user + ' not found'});
                 }else{
-                    if(docs.length == 0){
-                        res.render("error", {message : "未能找到您的个人资料"});
-                    }else{
-                        req.user_info = docs[0];
-                        next();
-                    }
+                    callback(null, docs[0]);
                 }
             });
         }else{
-            next();
+            callback({'error' : 'no user id'});
         }
     }
 };

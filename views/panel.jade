@@ -3,92 +3,96 @@
 
 extends layout
 block content
-   link(rel='stylesheet', href="/stylesheets/panel.css")
-   div.container-fluid
-      div.row.banner
-         img(style="width:100%;height:100%", src="/images/front-page-background.jpg")
-   div.container
-      div.row
-         div.col-md-4.col-sm-6.col-xs-12.text-center
-            div.icon.btn
-               span.glyphicon.glyphicon-usd.class-icon
-            div
-               | 充值
-         div.col-md-4.col-sm-6.col-xs-12.text-center
-            div.icon.btn
-               span.glyphicon.glyphicon-list.class-icon
-            div
-               | 账户
-         div.col-md-4.col-sm-6.col-xs-12.text-center
-            div.icon.btn
-               span.glyphicon.glyphicon-play-circle.class-icon
-            div
-               | 发布
-   div.divider
-   div.container
-      div.row
-         ul#puttings-list.list-group
-            li.putting-list-item.list-group-item
-               span.putting-name
-                  | 投放名称
-               span.putting-creative
-                  | 投放物料
-               span.putting-state
-                  | 目前状态
-               span.putting-date
-                  | 状态更新时间
-            li.putting-list-item.list-group-item
-               span.putting-name
-                  | 投放名称
-               span.putting-creative
-                  | 投放物料
-               span.putting-state
-                  | 目前状态
-               span.putting-date
-                  | 状态更新时间
-      script(src="/javascripts/lib/Chart.js")
-      div.row
-         div.chart-wrapper.text-center
-            canvas#chart-canvas(width=600, height=200)
-      div.row.text-center
-         table.table
-            thead
-               tr
-                  th.text-center
-                     | head4
-                  th.text-center
-                     | head3
-                  th.text-center
-                     | head2
-                  th.text-center
-                     | head1
-            tbody
-               tr
-                  td
-                     | test
-                  td
-                     | test
-                  td
-                     | test
-                  td
-                     | test
-               tr
-                  td
-                     | test
-                  td
-                     | test
-                  td
-                     | test
-                  td
-                     | test
-               tr
-                  td
-                     | test
-                  td
-                     | test
-                  td
-                     | test
-                  td
-                     | test
-   script(src="/javascripts/lib/jade.js")
-   script(src='/javascripts/panel.js')
+    link(rel='stylesheet', href="/stylesheets/panel.css")
+    div.container-fluid
+        div.row.banner
+            img(style="width:100%;height:100%", src="/images/front-page-background.jpg")
+    div.container
+        div.row
+            div.col-md-4.col-sm-6.col-xs-12.text-center
+                div.icon.btn
+                    a(href="/users/deposit")
+                        span.glyphicon.glyphicon-usd.class-icon
+                div
+                    | 充值
+            div.col-md-4.col-sm-6.col-xs-12.text-center
+                div.icon.btn
+                    a(href="/users/manage")
+                        span.glyphicon.glyphicon-list.class-icon
+                div
+                    | 账户
+            div.col-md-4.col-sm-6.col-xs-12.text-center
+                div.icon.btn
+                    a(href="/panel/put")
+                        span.glyphicon.glyphicon-play-circle.class-icon
+                div
+                    | 发布
+    div.divider
+    div.container
+        div.row
+            script(src="/templates/panel.js")
+            ul#puttings-list.list-group
+                li.putting-list-item.list-group-item
+                    span.putting-name
+                        | 投放名称
+                    span.putting-creative
+                        | 投放物料
+                    span.putting-state
+                        | 目前状态
+                    span.putting-date
+                        | 状态更新时间
+                li.putting-list-item.list-group-item
+                    span.putting-name
+                        | 投放名称
+                    span.putting-creative
+                        | 投放物料
+                    span.putting-state
+                        | 目前状态
+                    span.putting-date
+                        | 状态更新时间
+        script(src="/javascripts/lib/Chart.js")
+        div.row
+            div.chart-wrapper.text-center
+                canvas#chart-canvas(width=600, height=200)
+        div.row.text-center
+            table.table
+                thead
+                    tr
+                        th.text-center
+                            | head4
+                        th.text-center
+                            | head3
+                        th.text-center
+                            | head2
+                        th.text-center
+                            | head1
+                tbody
+                    tr
+                        td
+                            | test
+                        td
+                            | test
+                        td
+                            | test
+                        td
+                            | test
+                    tr
+                        td
+                            | test
+                        td
+                            | test
+                        td
+                            | test
+                        td
+                            | test
+                    tr
+                        td
+                            | test
+                        td
+                            | test
+                        td
+                            | test
+                        td
+                            | test
+    script(src="/javascripts/lib/runtime.js")
+    script(src='/javascripts/panel.js')
