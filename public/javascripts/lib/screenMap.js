@@ -34,9 +34,11 @@ function ScreenMap(mapId){
         self.drawingManager.addEventListener('circlecomplete', function(e, overlay){
             self.selectOverlay = overlay;
             self.drawingManager.close();
+            $(self.selectEvent).trigger("selected", overlay);
         });
     }
-
+    self.selectEvent = {};
+    self.showingScreens = [];
 };
 
 ScreenMap.prototype.addScreen = function(lon, lat){
@@ -48,16 +50,28 @@ ScreenMap.prototype.addScreen = function(lon, lat){
     });
     var marker = new BMap.Marker(point, {icon : myIcon});
     self.map.addOverlay(marker);
+    self.showingScreens.push(marker);
     marker.addEventListener("click", function(event){
         $(self).trigger("screen_click", event);
     })
 };
 
-ScreenMap.prototype.selectScreens = function(){
+ScreenMap.prototype.selectScreens = function(callback){
     var self = this;
     self.drawingManager.open();
     if(self.selectOverlay){
         self.map.removeOverlay(self.selectOverlay);
         self.selectOverlay = null;
-    }
+    };
+    self.removeCurrentScreens();
+    $(self.selectEvent).unbind("selected");
+    $(self.selectEvent).on("selected", callback);
 };
+
+ScreenMap.prototype.removeCurrentScreens = function(){
+    var self = this;
+    self.showingScreens.forEach(function(screen){
+        self.map.removeOverlay(screen);
+    });
+
+}

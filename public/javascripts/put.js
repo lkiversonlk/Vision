@@ -10,5 +10,20 @@ $(screenMap).on("screen_click", function(){
 });
 
 $("#select_gis_screens").on("click", function(){
-    screenMap.selectScreens();
-})
+    screenMap.selectScreens(function(range){
+        //first ignore the range
+        $.post(
+            "/query/screens",
+            {},
+            function(data){
+                if(data.error){
+                    alert("failt to load screens")
+                }else{
+                    data.forEach(function(screen){
+                        screenMap.addScreen(screen.longitude, screen.latitude);
+                    })
+                }
+            }
+        )
+    });
+});

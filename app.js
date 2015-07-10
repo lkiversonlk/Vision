@@ -9,6 +9,7 @@ var flash = require("express-flash");
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var panel = require("./routes/panel");
+var query = require("./routes/query");
 
 var app = express();
 
@@ -86,6 +87,7 @@ passport.use(new LocalStrategy(
 app.use('/', routes);
 app.use('/users', users);
 app.use('/panel', panel);
+app.use("/query", query);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

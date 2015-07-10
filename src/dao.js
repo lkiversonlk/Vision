@@ -89,8 +89,8 @@ var fakeMessages = [
 var fakeScreens = [
     {
         "id": "20140101",			//屏幕ID
-        "Longitude":"116.460323",
-        "Latitude": "39.920912",	//屏幕地理位置坐标
+        "longitude":"116.460323",
+        "latitude": "39.920912",	//屏幕地理位置坐标
         "position": "left",			//屏幕摆放位置
         "put": "160cm",				//屏幕摆放高度
         "utility": "1.2",				//物业费
@@ -111,8 +111,8 @@ var fakeScreens = [
     },
     {
         "id": "20140104",			//屏幕ID
-        "Longitude":"116.442213",
-        "Latitude": "39.94271",	//屏幕地理位置坐标
+        "longitude":"116.442213",
+        "latitude": "39.94271",	//屏幕地理位置坐标
         "position": "left",			//屏幕摆放位置
         "put": "170cm",				//屏幕摆放高度
         "utility": "4.2",				//物业费
@@ -133,8 +133,8 @@ var fakeScreens = [
     },
     {
         "id": "20140103",			//屏幕ID
-        "Longitude":"116.200317",
-        "Latitude": "39.926113",	//屏幕地理位置坐标
+        "longitude":"116.200317",
+        "latitude": "39.926113",	//屏幕地理位置坐标
         "position": "right",			//屏幕摆放位置
         "put": "180cm",				//屏幕摆放高度
         "utility": "2.2",				//物业费
@@ -155,8 +155,8 @@ var fakeScreens = [
     },
     {
         "id": "20140102",			//屏幕ID
-        "Longitude":"113.052799",
-        "Latitude": "28.248992",	//屏幕地理位置坐标
+        "longitude":"113.052799",
+        "latitude": "28.248992",	//屏幕地理位置坐标
         "position": "left",			//屏幕摆放位置
         "put": "160cm",				//屏幕摆放高度
         "utility": "3.2",				//物业费
@@ -177,8 +177,8 @@ var fakeScreens = [
     },
     {
         "id": "20140105",			//屏幕ID
-        "Longitude":"116.487703",
-        "Latitude": "40.002041",	//屏幕地理位置坐标
+        "longitude":"116.487703",
+        "latitude": "40.002041",	//屏幕地理位置坐标
         "position": "left",			//屏幕摆放位置
         "put": "170cm",				//屏幕摆放高度
         "utility": "2.8",				//物业费
@@ -199,8 +199,8 @@ var fakeScreens = [
     },
     {
         "id": "20140106",			//屏幕ID
-        "Longitude":"116.336716",
-        "Latitude": "39.969631",	//屏幕地理位置坐标
+        "longitude":"116.336716",
+        "latitude": "39.969631",	//屏幕地理位置坐标
         "position": "left",			//屏幕摆放位置
         "put": "170cm",				//屏幕摆放高度
         "utility": "1.8",				//物业费
