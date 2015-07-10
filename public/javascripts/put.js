@@ -21,7 +21,10 @@ $("#select_gis_screens").on("click", function(){
                 }else{
                     data.forEach(function(screen){
                         screenMap.addScreen(screen.longitude, screen.latitude);
-                    })
+                    });
+                    $("#screen-select-table tbody").html(Templates["screen-list-item"]({
+                        screens : data
+                    }));
                 }
             }
         )

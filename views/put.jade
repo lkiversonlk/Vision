@@ -8,12 +8,31 @@ block content
     div.container
         div.row
             div.col-md-8.col-sm-8.col-xs-12
-                div#screen-map
-            button#select_gis_screens.col-md-2.col-md-offset-2.col-sm-2.col-xs-4.btn.btn-primary
-                | 开始选取
+                div
+                    div#screen-map
+            div.col-md-4.col-sm-4.col-xs-12
+                div.panel.panel-default
+                    div.panel-heading
+                        | 选择您想投放的屏
+                        button#select_gis_screens.pull-right
+                            | 开始选取
+                    div.panel-body
+                        table#screen-select-table.table
+                            thead
+                                tr
+                                    th
+                                        | id
+                                    th
+                                        | 人流量
+                                    th
+                                        | 历史平均竞价
+                            tbody
+
 
     script(src="http://api.map.baidu.com/api?v=1.5&ak=mYCvhgZoPh1bXmYVH7hQy0Wb")
     link(rel="stylesheet", href="/javascripts/lib/DrawingManager_min.css")
     script(src="/javascripts/lib/DrawingManager_min.js")
     script(src="/javascripts/lib/screenMap.js")
+    script(src="/javascripts/lib/runtime.js")
+    script(src="/templates/put.js")
     script(src="/javascripts/put.js")
