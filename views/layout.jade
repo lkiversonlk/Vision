@@ -33,7 +33,7 @@ body
                                 | 登录
                                 string.caret
                             div#login-form.dropdown-menu
-                                form.form-horizontal(method="post", action="/users/login", accept-charset="UTF-8",style="margin:10px")
+                                form.form-horizontal(method="post", action="/users/login", accept-charset="UTF-8")
                                     fieldset
                                         input#username.form-control.input-md(name="username",placeholder="请输入账户名", type="text")
                                         input#password.form-control.input-md(name="password", placeholder="请输入密码", type="password")
@@ -41,6 +41,7 @@ body
                                             a
                                                 small
                                                     | 忘记密码?
+                                        div.divider
                                         button#login.btn.btn-primary.col-md-5.col-xs-5.form-control(type="submit")
                                             | 登录
                     else

@@ -15,7 +15,7 @@ router.post("/login", passport.authenticate('local', {
 }));
 
 router.get("/register", function (req, res) {
-    res.render("register", {});
+    res.render("register", {register : true});
 });
 
 router.post("/registration", function (req, res) {
