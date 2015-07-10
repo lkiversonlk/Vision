@@ -14,7 +14,7 @@ var utils = {
                     if(error || docs.length == 0){
                         callback({'error' : 'user id ' + req.user + ' not found'});
                     }else{
-                        req.session.user_infp = docs[0];
+                        req.session.user_info = docs[0];
                         callback(null, docs[0]);
                     }
                 });

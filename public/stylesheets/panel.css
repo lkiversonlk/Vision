@@ -21,3 +21,8 @@
 #puttings-list li span{
     margin-left: 20px;
 }
+
+#puttings-list{
+    height: 300px;
+    overflow-y: scroll;
+}

@@ -61,9 +61,11 @@ router.post("/registration", function (req, res) {
         });
 });
 
-router.get("/logout", function(req, res){
+router.get("/signout", function(req, res){
     req.logOut();
-    res.redirect("/");
+    req.session.destroy(function(){
+        res.redirect("/");
+    });
 });
 
 router.get("/put", function(req, res){

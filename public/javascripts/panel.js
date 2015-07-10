@@ -80,7 +80,7 @@ var options = {
 
 var chart = new Chart(ctx).Line(data, options);
 
-
+/*
 var html = Templates['putting-list-item']({
     puttings :[
         {
@@ -93,5 +93,16 @@ var html = Templates['putting-list-item']({
 });
 
 $("#puttings-list").html(html);
+*/
 
+$("#search-puttings").keyup(function(event){
+    var searchText = $("#search-puttings").val();
+    $("#puttings-list li").each(function(index){
+       if($(this).text().indexOf(searchText) >= 0){
+           $(this).show();
+       }else{
+           $(this).hide();
+       }
+    });
+});
 

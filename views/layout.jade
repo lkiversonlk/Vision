@@ -46,8 +46,20 @@ body
                                             | 登录
                     else
                         li.dropdown
-                            a
+                            a.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true",aria-expanded="false")
                                 | #{user_info.name}
+                                string.caret
+                            ul.dropdown-menu
+                                li
+                                    a(href="/panel/")
+                                        | 管理面板
+                                li
+                                    a(href="/users/")
+                                        | 个人信息
+                                li.divider(role="separator")
+                                li
+                                    a(href="/users/signout")
+                                        | 注销
 
     div(style="min-height:600px")
         block content
