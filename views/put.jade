@@ -5,28 +5,41 @@ extends layout
 
 block content
     link(rel='stylesheet', href="/stylesheets/put.css")
+    link(rel="stylesheet", href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css")
     div.container
-        div.row
-            div.col-md-8.col-sm-8.col-xs-12
-                div
-                    div#screen-map
-            div.col-md-4.col-sm-4.col-xs-12
-                div.panel.panel-default
-                    div.panel-heading
-                        | 选择您想投放的屏
-                        button#select_gis_screens.pull-right
-                            | 开始选取
-                    div.panel-body
-                        table#screen-select-table.table
-                            thead
-                                tr
-                                    th
-                                        | id
-                                    th
-                                        | 人流量
-                                    th
-                                        | 历史平均竞价
-                            tbody
+        div#select-panel.panel.panel-default
+            div.panel-heading
+                | 选择您想投放的屏
+                div.btn-group(role="group").pull-right
+                    button#confirm_gis_screens(style="display:none")
+                        | 确认
+                    button#cancel_gis_screens(style="display:none")
+                        | 取消
+                    button#select_gis_screens
+                        | 选取
+            div.panel-body
+                div.row
+                    div.col-md-12.col-sm-12.col-xs-12
+                        div
+                            div#screen-map
+            div.panel-body
+                div.row
+                    div.col-md-12.col-sm-12.col-xs-12
+
+                            div.panel-body
+                                table#screen-select-table.table
+                                    thead
+                                        tr
+                                            th
+                                                | id
+                                            th
+                                                | 人流量
+                                            th
+                                                | 历史平均竞价
+                                            th
+                                                | 选中
+                                    tbody
+
 
 
     script(src="http://api.map.baidu.com/api?v=1.5&ak=mYCvhgZoPh1bXmYVH7hQy0Wb")
@@ -35,4 +48,5 @@ block content
     script(src="/javascripts/lib/screenMap.js")
     script(src="/javascripts/lib/runtime.js")
     script(src="/templates/put.js")
+    script(src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js")
     script(src="/javascripts/put.js")

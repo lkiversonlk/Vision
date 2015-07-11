@@ -218,6 +218,116 @@ var fakeScreens = [
         "feedback": 1,				//有无反馈图片
         "avg_compet": 2.8,			//历史平均竞得价
         "format": "flv"				//可供选择的视屏文件格式
+    },
+    {
+        "id": "20140129",			//屏幕ID
+        "longitude":"116.487703",
+        "latitude": "40.002041",	//屏幕地理位置坐标
+        "position": "left",			//屏幕摆放位置
+        "put": "170cm",				//屏幕摆放高度
+        "utility": "2.8",				//物业费
+        "prices": 34000,			//房价
+        "age": 6,					//房龄
+        "avg": 200,					//单元居住人数
+        "traffic": 3500,				//日均人流
+        "size": "18.5",				//屏幕尺寸
+        "screen": "1028,720",		//屏幕分辨率
+        "sound": 1,					//有无声音
+        "online": 0,					//是否在线
+        "wifi": 0,					//是否有wifi热点
+        "uid": "20120105",			//WiFi UID
+        "interactive": 0,				//有无互动
+        "feedback": 1,				//有无反馈图片
+        "avg_compet": 3.6,			//历史平均竞得价
+        "format": "flv"				//可供选择的视屏文件格式
+    },
+    {
+        "id": "20140168",			//屏幕ID
+        "longitude":"116.487703",
+        "latitude": "40.002041",	//屏幕地理位置坐标
+        "position": "left",			//屏幕摆放位置
+        "put": "170cm",				//屏幕摆放高度
+        "utility": "2.8",				//物业费
+        "prices": 34000,			//房价
+        "age": 6,					//房龄
+        "avg": 200,					//单元居住人数
+        "traffic": 3500,				//日均人流
+        "size": "18.5",				//屏幕尺寸
+        "screen": "1028,720",		//屏幕分辨率
+        "sound": 1,					//有无声音
+        "online": 0,					//是否在线
+        "wifi": 0,					//是否有wifi热点
+        "uid": "20120105",			//WiFi UID
+        "interactive": 0,				//有无互动
+        "feedback": 1,				//有无反馈图片
+        "avg_compet": 3.6,			//历史平均竞得价
+        "format": "flv"				//可供选择的视屏文件格式
+    },
+    {
+        "id": "20140145",			//屏幕ID
+        "longitude":"116.487703",
+        "latitude": "40.002041",	//屏幕地理位置坐标
+        "position": "left",			//屏幕摆放位置
+        "put": "170cm",				//屏幕摆放高度
+        "utility": "2.8",				//物业费
+        "prices": 34000,			//房价
+        "age": 6,					//房龄
+        "avg": 200,					//单元居住人数
+        "traffic": 3500,				//日均人流
+        "size": "18.5",				//屏幕尺寸
+        "screen": "1028,720",		//屏幕分辨率
+        "sound": 1,					//有无声音
+        "online": 0,					//是否在线
+        "wifi": 0,					//是否有wifi热点
+        "uid": "20120105",			//WiFi UID
+        "interactive": 0,				//有无互动
+        "feedback": 1,				//有无反馈图片
+        "avg_compet": 3.6,			//历史平均竞得价
+        "format": "flv"				//可供选择的视屏文件格式
+    },
+    {
+        "id": "20140126",			//屏幕ID
+        "longitude":"116.487703",
+        "latitude": "40.002041",	//屏幕地理位置坐标
+        "position": "left",			//屏幕摆放位置
+        "put": "170cm",				//屏幕摆放高度
+        "utility": "2.8",				//物业费
+        "prices": 34000,			//房价
+        "age": 6,					//房龄
+        "avg": 200,					//单元居住人数
+        "traffic": 3500,				//日均人流
+        "size": "18.5",				//屏幕尺寸
+        "screen": "1028,720",		//屏幕分辨率
+        "sound": 1,					//有无声音
+        "online": 0,					//是否在线
+        "wifi": 0,					//是否有wifi热点
+        "uid": "20120105",			//WiFi UID
+        "interactive": 0,				//有无互动
+        "feedback": 1,				//有无反馈图片
+        "avg_compet": 3.6,			//历史平均竞得价
+        "format": "flv"				//可供选择的视屏文件格式
+    },
+    {
+        "id": "20140122",			//屏幕ID
+        "longitude":"116.487703",
+        "latitude": "40.002041",	//屏幕地理位置坐标
+        "position": "left",			//屏幕摆放位置
+        "put": "170cm",				//屏幕摆放高度
+        "utility": "2.8",				//物业费
+        "prices": 34000,			//房价
+        "age": 6,					//房龄
+        "avg": 200,					//单元居住人数
+        "traffic": 3500,				//日均人流
+        "size": "18.5",				//屏幕尺寸
+        "screen": "1028,720",		//屏幕分辨率
+        "sound": 1,					//有无声音
+        "online": 0,					//是否在线
+        "wifi": 0,					//是否有wifi热点
+        "uid": "20120105",			//WiFi UID
+        "interactive": 0,				//有无互动
+        "feedback": 1,				//有无反馈图片
+        "avg_compet": 3.6,			//历史平均竞得价
+        "format": "flv"				//可供选择的视屏文件格式
     }
 ];
 

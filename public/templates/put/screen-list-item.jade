@@ -2,10 +2,12 @@
    Created by kliu on 10/07/2015.
 
 each screen in screens
-   tr
+   tr(screen="#{screen.id}")
         td
             | #{screen.id}
         td
             | #{screen.traffic}
         td
             | #{screen.avg_compet}
+        td
+            input(type="checkbox", checked="on")

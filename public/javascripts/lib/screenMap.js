@@ -56,13 +56,22 @@ ScreenMap.prototype.addScreen = function(lon, lat){
     })
 };
 
+ScreenMap.prototype.cancelSelect = function(){
+    var self = this;
+    if(self.selectOverlay){
+        self.map.removeOverlay(self.selectOverlay);
+        self.selectOverlay = null;
+    }
+    self.drawingManager.close();
+};
+
 ScreenMap.prototype.selectScreens = function(callback){
     var self = this;
-    self.drawingManager.open();
     if(self.selectOverlay){
         self.map.removeOverlay(self.selectOverlay);
         self.selectOverlay = null;
     };
+    self.drawingManager.open();
     self.removeCurrentScreens();
     $(self.selectEvent).unbind("selected");
     $(self.selectEvent).on("selected", callback);
@@ -73,5 +82,4 @@ ScreenMap.prototype.removeCurrentScreens = function(){
     self.showingScreens.forEach(function(screen){
         self.map.removeOverlay(screen);
     });
-
 }
