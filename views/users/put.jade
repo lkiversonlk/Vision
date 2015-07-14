@@ -1,0 +1,84 @@
+//
+   Created by kliu on 09/07/2015.
+
+extends ../layout
+
+block content
+    link(rel='stylesheet', href="/stylesheets/put.css")
+    link(rel="stylesheet", href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css")
+    div.container
+        div#select-panel.panel.panel-default
+            div.panel-heading
+                | 设定条件
+            div.panel-body
+                each filter in filters
+                    div.row
+                        div
+                            span.filter-category.col-md-2
+                                label
+                                    | #{filter.title}
+
+                            span.filter-options.col-md-10
+                                each option in filter.options
+                                    span.filter-select
+                                        input(type="radio")
+                                        span
+                                            | #{option.value}
+            div.panel-heading
+                | 选择投放区域
+
+            div.panel-body
+                div.row
+                    div
+                        div(style="position:relative")
+                            div#screen-map
+
+                            div#screen-map-toolbox.BMapLib_Drawing
+                                div.BMapLib_Drawing_panel
+                                    //a.BMapLib_box.BMapLib_hander(drawingtype="hander", href="javascript:void(0)", title="拖动地图")
+                                    a#select_gis_screens.BMapLib_box.BMapLib_hander.BMapLib_last(drawingtype="hander", href="javascript:void(0)", title="选择区域")
+                                    //div
+                                        button#confirm_gis_screens(style="display:none")
+                                            | 确认
+                                        button#cancel_gis_screens(style="display:none")
+                                            | 取消
+                                        button#select_gis_screens
+                                            | 选取
+                div.row.panel-body
+                    div#screen-table-div.col-md-8.col-sm-8.col-xs-12
+                        table#screen-select-table.table
+                            thead
+                                tr
+                                    th
+                                        | id
+                                    th
+                                        | 人流量
+                                    th
+                                        | 历史平均竞价
+                                    th
+                                        | 选中
+                            tbody
+                    div.col-md-4.col-sm-4.col-xs-12
+                        div#screen-info-div.panel.panel-default
+                            div.panel-heading
+                                | 选取互动屏
+
+                            div.panel-body
+
+                            div.panel-footer
+                                | 目前一共选取了
+                                i
+                                    | 2342
+                                | 个互动屏
+
+
+
+
+    script(src="http://api.map.baidu.com/api?v=1.5&ak=mYCvhgZoPh1bXmYVH7hQy0Wb")
+    link(rel="stylesheet", href="/javascripts/lib/DrawingManager_min.css")
+    script(src="/javascripts/lib/DrawingManager_min.js")
+    script(src="/javascripts/lib/screenMap.js")
+    script(src="/javascripts/lib/runtime.js")
+    script(src="/templates/put.js")
+    script(src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js")
+    script(src="/javascripts/put.js")

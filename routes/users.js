@@ -15,7 +15,7 @@ router.post("/login", passport.authenticate('local', {
 }));
 
 router.get("/register", function (req, res) {
-    res.render("register", {register : true});
+    res.render("users/register", {register : true});
 });
 
 router.post("/registration", function (req, res) {
@@ -68,15 +68,59 @@ router.get("/signout", function(req, res){
     });
 });
 
+/**
+ * filter:
+ *   title
+ *   options:
+ *       value
+ * @type {Array}
+ */
+var filters = [
+    {
+        title: "房价/平方米",
+        options:[
+            {
+                value:"1至2万"
+            },
+            {
+                value:"2至5万"
+            },
+            {
+                value:"5至10万"
+            },
+            {
+                value:"10万以上"
+            }
+        ]
+    },
+    {
+        title: "房龄",
+        options:[
+            {
+                value:"1至3年"
+            },
+            {
+                value:"3至8年"
+            },
+            {
+                value:"8至15年"
+            },
+            {
+                value:"15年以上"
+            }
+        ]
+    }
+];
 router.get("/put", function(req, res){
     utils.loadUserInfo(req, function(error, user_info){
         if(error){
             res.redirect("/");
         }else{
             var data = {
-                user_info : user_info
+                user_info : user_info,
+                filters : filters
             };
-            res.render('put', data);
+            res.render('users/put', data);
         }
     });
 });

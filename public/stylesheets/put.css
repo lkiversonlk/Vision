@@ -7,3 +7,23 @@
     overflow-y: auto;
     height: 100px;
 }
+
+#screen-info-div div.panel-body{
+    overflow-y : scroll;
+    height : 261px;
+}
+
+.filter-category{
+}
+
+.filter-select{
+    width:80px;
+    overflow-x: visible;
+    padding-right:20px;
+}
+
+#screen-map-toolbox{
+    position:absolute;
+    right:5px;
+    top:5px;
+}

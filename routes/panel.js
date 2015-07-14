@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
                 res.redirect("/");
             })
         }else{
-            res.render("panel", {
+            res.render("panel/panel", {
                 user_info : user_info
             });
         }

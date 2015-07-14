@@ -12,54 +12,52 @@ $("#screen-select-table").DataTable({
     info : false
 });
 
-$(screenMap).on("screen_click", function(){
-    alert("clicked");
-});
-
+var selecting = false;
 function changeState(){
     selecting = !selecting;
-    $("#select_gis_screens").text( selecting ? "取消" : "选取");
-};
-
-function clearSelection(){
-    screenMap.cancelSelect();
-    screenMap.removeCurrentScreens();
-    $("#screen-select-table tbody").html("");
-};
-
-var selecting = false;
-$("#select_gis_screens").on("click", function(){
     if(selecting){
-        changeState();
-        screenMap.cancelSelect();
+        $("#select_gis_screens").addClass("BMapLib_hander_hover");
+        $("#select_gis_screens").removeClass("BMapLib_hander");
     }else{
-        changeState();
-        screenMap.selectScreens(function(range){
-            //first ignore the range
-            $("#confirm_gis_screens").show();
-            $("#cancel_gis_screens").show();
-            $("#select_gis_screens").hide();
-            $.post(
-                "/query/screens",
-                {},
-                function(data){
-                    if(data.error){
-                        alert("failt to load screens")
-                    }else{
-                        data.forEach(function(screen){
-                            screenMap.addScreen(screen.longitude, screen.latitude);
-                        });
-                        $("#screen-select-table tbody").html(Templates["screen-list-item"]({
-                            screens : data
-                        }));
-                    }
-                }
-            )
-        });
+        $("#select_gis_screens").removeClass("BMapLib_hander_hover");
+        $("#select_gis_screens").addClass("BMapLib_hander");
     }
+};
+
+
+function applyScreens(screens){
+    screenMap.removeCurrentScreens();
+    screens.forEach(function(screen){
+        screenMap.addScreen(screen.longitude, screen.latitude);
+    });
+    $("#screen-select-table tbody").html(Templates["screen-list-item"]({
+        screens : screens
+    }));
+};
+
+$("#select_gis_screens").on("click", function(){
+    screenMap.removeSelectOverlay();
+    applyScreens([]);
+    changeState();
+    screenMap.selectScreens(function(range){
+        changeState();
+        $.post(
+            "/query/screens",
+            {},
+            function(data){
+                if(data.error){
+                    alert("failt to load screens")
+                }else{
+                    applyScreens(data);
+                }
+            }
+        );
+    });
 });
 
+/*
 $("#confirm_gis_screens").on("click", function() {
+
     changeState();
     $("#select_gis_screens").show();
     $("#confirm_gis_screens").hide();
@@ -71,7 +69,7 @@ $("#confirm_gis_screens").on("click", function() {
         }
     });
 
-    clearSelection();
+    applyScreens([]);
 });
 
 $("#cancel_gis_screens").on("click", function() {
@@ -79,5 +77,10 @@ $("#cancel_gis_screens").on("click", function() {
     $("#select_gis_screens").show();
     $("#confirm_gis_screens").hide();
     $("#cancel_gis_screens").hide();
-    clearSelection();
+    applyScreens([]);
 });
+*/
+
+var filterOpts = [
+
+];

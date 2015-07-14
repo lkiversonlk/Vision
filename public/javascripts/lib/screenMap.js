@@ -18,8 +18,7 @@ function ScreenMap(mapId){
             self.map,
             {
                 isOpen: false, //是否开启绘制模式
-                enableDrawingTool: false //是否显示工具栏
-                /*
+                enableDrawingTool: false, //是否显示工具栏
                 drawingToolOptions: {
                     anchor: BMAP_ANCHOR_TOP_RIGHT, //位置
                     offset: new BMap.Size(5, 5), //偏离值
@@ -27,7 +26,7 @@ function ScreenMap(mapId){
                     drawingModes: [
                         BMAP_DRAWING_CIRCLE
                     ]
-                }*/
+                }
             }
         );
         self.drawingManager.setDrawingMode(BMAP_DRAWING_CIRCLE);
@@ -56,21 +55,16 @@ ScreenMap.prototype.addScreen = function(lon, lat){
     })
 };
 
-ScreenMap.prototype.cancelSelect = function(){
+ScreenMap.prototype.removeSelectOverlay = function(){
     var self = this;
     if(self.selectOverlay){
         self.map.removeOverlay(self.selectOverlay);
         self.selectOverlay = null;
     }
-    self.drawingManager.close();
 };
 
 ScreenMap.prototype.selectScreens = function(callback){
     var self = this;
-    if(self.selectOverlay){
-        self.map.removeOverlay(self.selectOverlay);
-        self.selectOverlay = null;
-    };
     self.drawingManager.open();
     self.removeCurrentScreens();
     $(self.selectEvent).unbind("selected");
