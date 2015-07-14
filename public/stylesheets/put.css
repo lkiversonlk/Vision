@@ -10,7 +10,7 @@
 
 #screen-info-div div.panel-body{
     overflow-y : scroll;
-    height : 261px;
+    height : 293px;
 }
 
 .filter-category{
@@ -26,4 +26,12 @@
     position:absolute;
     right:5px;
     top:5px;
+}
+
+.green{
+    color : #00A000;
+}
+
+#strategy-panel{
+    display:none;
 }

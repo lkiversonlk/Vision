@@ -60,21 +60,6 @@ $("#select_gis_screens").on("click", function(){
 });
 
 /*
-$("#confirm_gis_screens").on("click", function() {
-
-    changeState();
-    $("#select_gis_screens").show();
-    $("#confirm_gis_screens").hide();
-    $("#cancel_gis_screens").hide();
-    var selectedScreens = [];
-    $("#screen-select-table tbody tr").each(function(index){
-        if($(this).find("td input").get(0).checked){
-            selectedScreens.push($(this).attr('screen'));
-        }
-    });
-
-    applyScreens([]);
-});
 
 $("#cancel_gis_screens").on("click", function() {
     changeState();
@@ -192,3 +177,45 @@ function generateFilterFuction(){
 };
 
 $("#filter-body").html(Templates['screen-filter-div']({filters : filters}));
+
+$("#confirm-screen-selection").on("click", function() {
+    var selectedScreens = [];
+    $("#screen-select-table tbody tr").each(function(index){
+        if($(this).find("td input").get(0).checked){
+            selectedScreens.push($(this).attr('screen'));
+        }
+    });
+    addScreensToSelection(selectedScreens);
+    printSelection(finalSelections);
+});
+
+var finalSelections = [];
+function addScreensToSelection(screens){
+    screens.forEach(function(screenid){
+        if(finalSelections.indexOf(screenid) == -1){
+            finalSelections.push(screenid);
+        }
+    })
+}
+function printSelection(screens){
+    $("#selection-stats").find("i").html(
+        screens.length
+    );
+    $("#screen-info-div").find("div.panel-body ul").html("");
+    screens.forEach(function(screenid){
+        $("#screen-info-div").find("div.panel-body ul").append(
+            '<li class="list-group-item">' + screenid + '</li>'
+        )
+    });
+}
+
+$("#make-strategy").on("click", function(){
+    $("#select-panel").hide({
+        duration : 1000,
+        done : function(){
+            $("#strategy-panel").show({
+                duration : 1000
+            });
+        }
+    });
+});

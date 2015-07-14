@@ -46,21 +46,29 @@ block content
                                     th
                                         | 选中
                             tbody
+                        div
+                            button#confirm-screen-selection.form-control.btn.btn-primary
+                                | 选定
                     div.col-md-4.col-sm-4.col-xs-12
                         div#screen-info-div.panel.panel-default
                             div.panel-heading
                                 | 选取互动屏
 
                             div.panel-body
+                                ul.list-group
 
-                            div.panel-footer
+                            div#selection-stats.panel-footer
                                 | 目前一共选取了
                                 i
-                                    | 2342
+                                    | 0
                                 | 个互动屏
+                                button#make-strategy.glyphicon.glyphicon-ok.pull-right.green
 
 
 
+
+        div#strategy-panel
+            | asdkfjasldkf
 
     script(src="http://api.map.baidu.com/api?v=1.5&ak=mYCvhgZoPh1bXmYVH7hQy0Wb")
     link(rel="stylesheet", href="/javascripts/lib/DrawingManager_min.css")
