@@ -86,6 +86,31 @@ var fakeMessages = [
     }
 ];
 
+var fakeScreens2 = [
+    {
+        "id": "20140101",			//屏幕ID
+        "longitude":"116.460323",
+        "latitude": "39.920912",	//屏幕地理位置坐标
+        "position": "left",			//屏幕摆放位置
+        "put": "160cm",				//屏幕摆放高度
+        "utility": "1.2",				//物业费
+        "price": 3,			//房价
+        "age": 10,					//房龄
+        "avg": 100,					//单元居住人数
+        "traffic": 2000,				//日均人流
+        "size": "10.5",				//屏幕尺寸
+        "screen": "1028,720",		//屏幕分辨率
+        "sound": 1,					//有无声音
+        "online": 0,					//是否在线
+        "wifi": 0,					//是否有wifi热点
+        "uid": "20120101",			//WiFi UID
+        "interactive": 0,				//有无互动
+        "feedback": 1,				//有无反馈图片
+        "avg_compet": 2.2,			//历史平均竞得价
+        "format": "flv"				//可供选择的视屏文件格式
+    }
+];
+
 var fakeScreens = [
     {
         "id": "20140101",			//屏幕ID
@@ -94,7 +119,7 @@ var fakeScreens = [
         "position": "left",			//屏幕摆放位置
         "put": "160cm",				//屏幕摆放高度
         "utility": "1.2",				//物业费
-        "prices": 30000,			//房价
+        "price": 3,			//房价
         "age": 10,					//房龄
         "avg": 100,					//单元居住人数
         "traffic": 2000,				//日均人流
@@ -116,7 +141,7 @@ var fakeScreens = [
         "position": "left",			//屏幕摆放位置
         "put": "170cm",				//屏幕摆放高度
         "utility": "4.2",				//物业费
-        "prices": 46000,			//房价
+        "price": 4.6,			//房价
         "age": 9,					//房龄
         "avg": 120,					//单元居住人数
         "traffic": 2580,				//日均人流
@@ -138,7 +163,7 @@ var fakeScreens = [
         "position": "right",			//屏幕摆放位置
         "put": "180cm",				//屏幕摆放高度
         "utility": "2.2",				//物业费
-        "prices": 26000,			//房价
+        "price": 2.6,			//房价
         "age": 12,					//房龄
         "avg": 140,					//单元居住人数
         "traffic": 1580,				//日均人流
@@ -160,7 +185,7 @@ var fakeScreens = [
         "position": "left",			//屏幕摆放位置
         "put": "160cm",				//屏幕摆放高度
         "utility": "3.2",				//物业费
-        "prices": 38000,			//房价
+        "price": 3.8,			//房价
         "age": 6,					//房龄
         "avg": 200,					//单元居住人数
         "traffic": 2500,				//日均人流
@@ -182,7 +207,7 @@ var fakeScreens = [
         "position": "left",			//屏幕摆放位置
         "put": "170cm",				//屏幕摆放高度
         "utility": "2.8",				//物业费
-        "prices": 34000,			//房价
+        "price": 3.4,			//房价
         "age": 6,					//房龄
         "avg": 200,					//单元居住人数
         "traffic": 3500,				//日均人流
@@ -204,7 +229,7 @@ var fakeScreens = [
         "position": "left",			//屏幕摆放位置
         "put": "170cm",				//屏幕摆放高度
         "utility": "1.8",				//物业费
-        "prices": 32000,			//房价
+        "price": 3.2,			//房价
         "age": 13,					//房龄
         "avg": 140,					//单元居住人数
         "traffic": 2200,				//日均人流
@@ -226,7 +251,7 @@ var fakeScreens = [
         "position": "left",			//屏幕摆放位置
         "put": "170cm",				//屏幕摆放高度
         "utility": "2.8",				//物业费
-        "prices": 34000,			//房价
+        "price": 3.4,			//房价
         "age": 6,					//房龄
         "avg": 200,					//单元居住人数
         "traffic": 3500,				//日均人流
@@ -248,7 +273,7 @@ var fakeScreens = [
         "position": "left",			//屏幕摆放位置
         "put": "170cm",				//屏幕摆放高度
         "utility": "2.8",				//物业费
-        "prices": 34000,			//房价
+        "price": 3.4,			//房价
         "age": 6,					//房龄
         "avg": 200,					//单元居住人数
         "traffic": 3500,				//日均人流
@@ -270,7 +295,7 @@ var fakeScreens = [
         "position": "left",			//屏幕摆放位置
         "put": "170cm",				//屏幕摆放高度
         "utility": "2.8",				//物业费
-        "prices": 34000,			//房价
+        "price": 3.4,			//房价
         "age": 6,					//房龄
         "avg": 200,					//单元居住人数
         "traffic": 3500,				//日均人流
@@ -292,7 +317,7 @@ var fakeScreens = [
         "position": "left",			//屏幕摆放位置
         "put": "170cm",				//屏幕摆放高度
         "utility": "2.8",				//物业费
-        "prices": 34000,			//房价
+        "price": 10,			//房价
         "age": 6,					//房龄
         "avg": 200,					//单元居住人数
         "traffic": 3500,				//日均人流
@@ -314,7 +339,7 @@ var fakeScreens = [
         "position": "left",			//屏幕摆放位置
         "put": "170cm",				//屏幕摆放高度
         "utility": "2.8",				//物业费
-        "prices": 34000,			//房价
+        "price": 2.8,			//房价
         "age": 6,					//房龄
         "avg": 200,					//单元居住人数
         "traffic": 3500,				//日均人流

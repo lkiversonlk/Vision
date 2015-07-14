@@ -10,20 +10,8 @@ block content
         div#select-panel.panel.panel-default
             div.panel-heading
                 | 设定条件
-            div.panel-body
-                each filter in filters
-                    div.row
-                        div
-                            span.filter-category.col-md-2
-                                label
-                                    | #{filter.title}
+            div#filter-body.panel-body
 
-                            span.filter-options.col-md-10
-                                each option in filter.options
-                                    span.filter-select
-                                        input(type="radio")
-                                        span
-                                            | #{option.value}
             div.panel-heading
                 | 选择投放区域
 

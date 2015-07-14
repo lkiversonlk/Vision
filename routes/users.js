@@ -75,50 +75,14 @@ router.get("/signout", function(req, res){
  *       value
  * @type {Array}
  */
-var filters = [
-    {
-        title: "房价/平方米",
-        options:[
-            {
-                value:"1至2万"
-            },
-            {
-                value:"2至5万"
-            },
-            {
-                value:"5至10万"
-            },
-            {
-                value:"10万以上"
-            }
-        ]
-    },
-    {
-        title: "房龄",
-        options:[
-            {
-                value:"1至3年"
-            },
-            {
-                value:"3至8年"
-            },
-            {
-                value:"8至15年"
-            },
-            {
-                value:"15年以上"
-            }
-        ]
-    }
-];
+
 router.get("/put", function(req, res){
     utils.loadUserInfo(req, function(error, user_info){
         if(error){
             res.redirect("/");
         }else{
             var data = {
-                user_info : user_info,
-                filters : filters
+                user_info : user_info
             };
             res.render('users/put', data);
         }
