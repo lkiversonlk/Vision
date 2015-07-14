@@ -14,6 +14,15 @@ function ScreenMap(mapId){
     self.selectOverlay = null;
 
     if(BMapLib){
+        var styleOption = {
+            strokeColor : "green",
+            fillColor : "green",
+            strokeWeight : 1,
+            strokeOpacity : 0.8,
+            fillOpacity : 0.3,
+            strokeStyle : "solid"
+        };
+
         self.drawingManager = new BMapLib.DrawingManager(
             self.map,
             {
@@ -26,7 +35,8 @@ function ScreenMap(mapId){
                     drawingModes: [
                         BMAP_DRAWING_CIRCLE
                     ]
-                }
+                },
+                circleOptions : styleOption
             }
         );
         self.drawingManager.setDrawingMode(BMAP_DRAWING_CIRCLE);
