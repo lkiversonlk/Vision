@@ -1,0 +1,183 @@
+//
+   Created by kliu on 16/07/2015.
+
+extends ../layout
+
+block content
+   link(rel='stylesheet', href='/stylesheets/users/index.css')
+   div.container
+      div.row
+         div.col-xs-3.col-md-2
+            div
+               div
+               div
+            ul.nav.nav-pills.nav-stacked
+               li.active
+                  a(href="#basic",data-toggle="tab")
+                     | 用户资料
+               li
+                  a(href="#message-box", data-toggle="tab")
+                     | 消息中心
+               li
+                  a(href="#balance-box", data-toggle="tab")
+                     | 账户信息
+         div.col-xs-9.col-md-10
+            div.row.user-header
+               div.col-md-4.col-xs-12.col-sm-6
+                  span.glyphicon.glyphicon-usd.class-icon
+                  div.stat-span
+                     div
+                        | 账户余额
+                     div
+                        | #{balance}
+               div.col-md-4.col-xs-12.col-sm-6
+                  span.glyphicon.glyphicon-list.class-icon
+                  div.stat-span
+                     div
+                        | 物料总数
+                     div
+                        | #{creatives}
+               div.col-md-4.col-xs-12.col-sm-6
+                  span.glyphicon.glyphicon-play-circle.class-icon
+                  div.stat-span
+                     div
+                        | 正在投放
+                     div
+                        | 2024433.23元
+            div.divider
+            div.tab-content
+               div#basic.tab-pane.active
+                  div.row
+                     div.col-md-3.col-sm-6.col-xs-12(style="height:200px")
+                        img(style="width:100%; height:100%", src="/images/front-page-background.jpg")
+                     div.col-md-9.col-sm-6.col-xs-12
+                        div
+                           form.form-horizontal(method="post", action="/users/detail")
+                              fieldset
+                                 legend.text-center.header
+                                    | 基本信息
+                                 div.form-group
+                                    span.col-md-2.col-sm-5.col-xs-12.text-center(style="margin-top:5px")
+                                       | 名称
+                                    div.col-md-8.col-sm-6.col-xs-12
+                                       input.form-control(name="nickname",type="text",placeholder="请填写您的公司名称", disabled=true, value=(user_info.nickname ? user_info.nickname : ''))
+                                 div.form-group
+                                    span.col-md-2.col-sm-5.col-xs-12.text-center(style="margin-top:5px")
+                                       | 邮箱
+                                    div.col-md-8.col-sm-6.col-xs-12
+                                       input.form-control(name="email",type="text",placeholder="请填写您的邮箱地址", disabled=true, value=(user_info.email ? user_info.email : ''))
+                                 div.form-group
+                                    span.col-md-2.col-sm-5.col-xs-12.text-center(style="margin-top:5px")
+                                       | 公司地址
+                                    div.col-md-8.col-sm-6.col-xs-12
+                                       textarea.form-control(name="address",placeholder="请填入您公司的详细地址",rows=3, disabled=true)
+                                          if user_info.address
+                                             | #{user_info.address}
+                                 div.form-group
+                                    div.col-md-8.col-md-offset-4.col-sm-6.col-sm-offset-5.col-xs-12
+                                       div.col-md-4.col-sm-4.col-xs-12
+                                          div#modify_basic.btn.btn-danger.form-control
+                                             | 修改
+                                       div.col-md-4.col-sm-4.col-xs-12
+                                          button#submit_basic.btn.btn-primary.form-control(type="submit",style="display:none")
+                                             | 提交
+               div#message-box.tab-pane
+                  div.row
+                     ul.messages-list
+                        each message in messages
+                           li(class=(message.seen ? '' : "unread"), data-toggle="collapse", data-target="##{message.id}")
+                              div.message-header
+                                 span.message-from
+                                    | #{message.from}
+                                 span.message-date
+                                    | #{message.date}
+                              div.message-title
+                                 | #{message.title}
+                              div.message-body.collapse(id=message.id)
+                                 | #{message.body}
+                     //div
+                         li.unread(data-toggle="collapse", data-target="#body1")
+                             div.message-header
+                                 span.message-from
+                                     | 物料审核系统
+                                 span.message-date
+                                     | 2012.4.23
+                             div.message-title
+                                 | 您的物料234234已经通过审核
+                             div.message-body.collapse#body1
+                                 | 啦啦啦啦啦啦啦啦啦啦啦啦
+                         li
+                             div.message-header
+                                 span.message-from
+                                     | 物料审核系统
+                                 span.message-date
+                                     | 2012.4.23
+                             div.message-title
+                                 | 您的物料234234已经通过审核
+                             div.message-body.collapse
+                                 | 物料编号2342342，已经通过审核
+               div#balance-box.tab-pane
+                  div.row
+                     div.col-md-3.col-sm-4.col-xs-12
+                        div.panel.panel-default.well
+                           div.current-balance
+                              | 目前余额 23434
+                           div.yesterday-cost
+                              | 昨日广告费 2342
+                           div.month-cost
+                              | 本月广告费 2342
+                     div.col-md-9.col-sm-8.col-xs-12
+                        //canvas#cost-chart(style="height:440px; width:100%")
+                  div.history-billing.row
+                     div.col-md-12
+                        div.panel.panel-default
+                           div.panel-heading
+                              h3.text-center
+                                 strong
+                                    | 账户历史
+                           div.panel-body
+                              div.table-responsive
+                                 table.table.table-condensed
+                                    thead
+                                       tr
+                                          td
+                                             strong
+                                                | 交易类型
+                                          td
+                                             strong
+                                                | 详细
+                                          td
+                                             strong
+                                                | 费用
+                                          td
+                                             strong
+                                                | 结余
+                                    tbody
+                                       tr
+                                          td
+                                             | TEst
+                                          td
+                                             | FSFD
+                                          td
+                                             | asd
+                                          td
+                                             | asd
+                                       tr
+                                          td
+                                             | TEst
+                                          td
+                                             | FSFD
+                                          td
+                                             | asd
+                                          td
+                                             | asd
+                                       tr
+                                          td
+                                             | TEst
+                                          td
+                                             | FSFD
+                                          td
+                                             | asd
+                                          td
+                                             | asd
+   script(src='/javascripts/users/index.js')

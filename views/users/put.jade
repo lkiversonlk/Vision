@@ -7,68 +7,103 @@ block content
     link(rel='stylesheet', href="/stylesheets/put.css")
     link(rel="stylesheet", href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css")
     div.container
-        div#select-panel.panel.panel-default
-            div.panel-heading
-                | 设定条件
-            div#filter-body.panel-body
+        ul.nav.nav-tabs.nav-pills.nav-justified
+            li.active
+                a(href="#select-panel",data-toggle="tab")
+                    | 选择投放屏
+            li
+                a(href="#strategy-panel",data-toggle="tab")
+                    | 选择投放策略
 
-            div.panel-heading
-                | 选择投放区域
+            li
+                a(href="#creative-panel", data-toggle="tab")
+                    | 选择投放物料
 
-            div.panel-body
-                div.row
-                    div
-                        div(style="position:relative")
-                            div#screen-map
+            li
+                a(href="#confirm-panel", data-toggle="tab")
+                    | 申请投放
+        div.tab-content(style="margin-top:10px")
+            div#select-panel.panel.panel-default.tab-pane.fade.in.active
+                div.panel-heading
+                    | 设定条件
+                div#filter-body.panel-body
 
-                            div#screen-map-toolbox.BMapLib_Drawing
-                                div.BMapLib_Drawing_panel
-                                    //a.BMapLib_box.BMapLib_hander(drawingtype="hander", href="javascript:void(0)", title="拖动地图")
-                                    a#select_gis_screens.BMapLib_box.BMapLib_hander.BMapLib_last(drawingtype="hander", href="javascript:void(0)", title="选择区域")
-                                    //div
-                                        button#confirm_gis_screens(style="display:none")
-                                            | 确认
-                                        button#cancel_gis_screens(style="display:none")
-                                            | 取消
-                                        button#select_gis_screens
-                                            | 选取
-                div.row.panel-body
-                    div#screen-table-div.col-md-8.col-sm-8.col-xs-12
-                        table#screen-select-table.table
-                            thead
-                                tr
-                                    th
-                                        | id
-                                    th
-                                        | 人流量
-                                    th
-                                        | 历史平均竞价
-                                    th
-                                        | 选中
-                            tbody
+                div.panel-heading
+                    | 选择投放区域
+
+                div.panel-body
+                    div.row
                         div
-                            button#confirm-screen-selection.form-control.btn.btn-primary
-                                | 选定
-                    div.col-md-4.col-sm-4.col-xs-12
-                        div#screen-info-div.panel.panel-default
-                            div.panel-heading
-                                | 选取互动屏
+                            div(style="position:relative")
+                                div#screen-map
 
-                            div.panel-body
-                                ul.list-group
+                                div#screen-map-toolbox.BMapLib_Drawing
+                                    div.BMapLib_Drawing_panel
+                                        //a.BMapLib_box.BMapLib_hander(drawingtype="hander", href="javascript:void(0)", title="拖动地图")
+                                        a#select_gis_screens.BMapLib_box.BMapLib_hander.BMapLib_last(drawingtype="hander", href="javascript:void(0)", title="选择区域")
+                                        //div
+                                            button#confirm_gis_screens(style="display:none")
+                                                | 确认
+                                            button#cancel_gis_screens(style="display:none")
+                                                | 取消
+                                            button#select_gis_screens
+                                                | 选取
+                    div.row.panel-body
+                        div#screen-table-div.col-md-8.col-sm-8.col-xs-12
+                            table#screen-select-table.table
+                                thead
+                                    tr
+                                        th
+                                            | id
+                                        th
+                                            | 人流量
+                                        th
+                                            | 历史平均竞价
+                                        th
+                                            | 选中
+                                tbody
+                            div
+                                div.divider
+                                button#confirm-screen-selection.form-control.btn.btn-primary
+                                    | 确认，加入这些屏
+                        div.col-md-4.col-sm-4.col-xs-12
+                            div#screen-info-div.panel.panel-default
+                                div.panel-heading
+                                    | 已选择的互动屏
 
-                            div#selection-stats.panel-footer
-                                | 目前一共选取了
-                                i
-                                    | 0
-                                | 个互动屏
-                                button#make-strategy.glyphicon.glyphicon-ok.pull-right.green
+                                div.panel-body
+                                    ul.list-group
+
+                                div#selection-stats.panel-footer
+                                    | 目前一共选取了
+                                    i
+                                        | 0
+                                    | 个互动屏
 
 
+            div#strategy-panel.panel.panel-default.tab-pane.fade
+                div.panel-heading
+                    | 主要投放对象
+                div#strategy-subject.panel-body
+                div.divider
+                div.text-center
+                    button.btn.btn-primary
+                        | 确认规则
+
+                div.panel-heading
+                    | 已生成规则
+                div#strategy-info.panel-body
+
+            div#creative-panel.panel.panel-default.tab-pane.fade
+                div.panel-heading
+                    | 当前物料列表
+                div.panel-body
+
+            div#confirm-panel.panel.panel-default.tab-pane.fade
+                div.panel-heading
+                    | 投放信息
 
 
-        div#strategy-panel
-            | asdkfjasldkf
 
     script(src="http://api.map.baidu.com/api?v=1.5&ak=mYCvhgZoPh1bXmYVH7hQy0Wb")
     link(rel="stylesheet", href="/javascripts/lib/DrawingManager_min.css")

@@ -208,7 +208,7 @@ function printSelection(screens){
         )
     });
 }
-
+/*
 $("#make-strategy").on("click", function(){
     $("#select-panel").hide({
         duration : 1000,
@@ -219,3 +219,50 @@ $("#make-strategy").on("click", function(){
         }
     });
 });
+*/
+var strategySubs = [
+    {
+        title : "性别",
+        property : "",
+        type : "checkbox",
+        options : [
+            {
+                value : "男性",
+                func : {}
+            },
+            {
+                value : "女性",
+                func : {}
+            }
+        ]
+    },
+    {
+        title : "人数",
+        property : "",
+        type : "checkbox",
+        options : [
+            {
+                value : "1",
+                func : {}
+            },
+            {
+                value : "2~3",
+                func : {}
+            },
+            {
+                value : "4~7",
+                func : {}
+            },
+            {
+                value : "8人以上",
+                func : {}
+            }
+        ]
+    }
+];
+
+$("#strategy-subject").html(Templates['screen-filter-div'](
+    {
+        filters : strategySubs
+    }
+));

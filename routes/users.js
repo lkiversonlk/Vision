@@ -3,9 +3,44 @@ var router = express.Router();
 var passport = require("passport");
 var utils = require("../src/utils");
 
-/* GET users listing. */
+/**
+ * user page needs data:
+ * user_info :
+ * balance :
+ * creatives :
+ * messages :
+ *     [
+ *         {
+ *             id:
+ *             from:
+ *             date:
+ *             title:
+ *             body:
+ *         }
+ *     ]
+ */
 router.get('/', function (req, res, next) {
-    res.send('respond with a resource');
+    utils.loadUserInfo(req, function(error, user_info){
+        if(error){
+            req.session.destroy(function(){
+                res.redirect("/");
+            })
+        }else{
+            var dao = req.app.get("dao");
+            dao.rest("/messages", {}, function(error, messages){
+                if(error){
+                    messages = [];
+                }
+                res.render("users/index", {
+                    user_info : user_info,
+                    balance : 2341123,
+                    creatives : 23423422,
+                    messages : messages
+                });
+            })
+
+        }
+    });
 });
 
 router.post("/login", passport.authenticate('local', {

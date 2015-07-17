@@ -10,16 +10,13 @@
 
 #screen-info-div div.panel-body{
     overflow-y : scroll;
-    height : 293px;
+    height : 312px;
 }
 
 .filter-category{
 }
 
 .filter-select{
-    width:80px;
-    overflow-x: visible;
-    padding-right:20px;
 }
 
 #screen-map-toolbox{
@@ -30,8 +27,4 @@
 
 .green{
     color : #00A000;
-}
-
-#strategy-panel{
-    display:none;
 }

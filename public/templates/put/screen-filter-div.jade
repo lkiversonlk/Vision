@@ -2,14 +2,15 @@
    Created by kliu on 13/07/2015.
 
 each filter in filters
-   div.row
-      div
-         span.filter-category.col-md-2
-            label
-               | #{filter.title}
-         span.filter-options.col-md-10
-            each option in filter.options
-               span.filter-select
-                  input(type="#{filter.type}")
-                  span
-                     | #{option.value}
+    div.row
+        div
+            span.filter-category.col-md-2
+                label
+                    | #{filter.title}
+            span.filter-options.col-md-10
+                div.row
+                    each option in filter.options
+                        span.filter-select.col-md-2
+                            input(type="#{filter.type}")
+                            span
+                                | #{option.value}
