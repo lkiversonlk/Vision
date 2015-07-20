@@ -22,6 +22,7 @@ var utils = require("../src/utils");
 router.get('/', function (req, res, next) {
     utils.loadUserInfo(req, function(error, user_info){
         if(error){
+            utils.logger.log("error", "failt to retrieve user infomation", error);
             req.session.destroy(function(){
                 res.redirect("/");
             })
@@ -29,6 +30,7 @@ router.get('/', function (req, res, next) {
             var dao = req.app.get("dao");
             dao.rest("/messages", {}, function(error, messages){
                 if(error){
+                    utils.logger.log("error", "failt to retrieve user messages", error);
                     messages = [];
                 }
                 res.render("users/index", {
