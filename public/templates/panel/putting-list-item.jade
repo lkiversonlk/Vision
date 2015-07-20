@@ -4,5 +4,12 @@
 //generate the html content
 
 each putting in puttings
-   li
-       | #{putting.name}
+   li.putting-list-item.list-group-item
+       span.putting-name
+           | #{putting.name}
+       span.putting-creative
+           | #{putting.creative}
+       span.putting-status
+           | #{putting.status}
+       span.putting-date
+           | #{putting.date}

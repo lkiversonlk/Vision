@@ -92,7 +92,7 @@ var html = Templates['putting-list-item']({
     ]
 });
 
-$("#puttings-list").html(html);
+$("#puttings-list").html(Templates['putting-list-item']();
 */
 
 $("#search-puttings").keyup(function(event){

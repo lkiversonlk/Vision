@@ -356,6 +356,39 @@ var fakeScreens = [
     }
 ];
 
+var fakePuttings = [
+    {
+        name : "五一节日广告投放",
+        creative : "沙滩系列视频",
+        status : "审核中",
+        date : "2015-7-20"
+    },
+    {
+        name : "工作日广告投放",
+        creative : "城市系列视频",
+        status : "投放中",
+        date : "2015-7-25"
+    },
+    {
+        name : "五一节日广告投放",
+        creative : "沙滩系列视频",
+        status : "审核中",
+        date : "2015-7-20"
+    },
+    {
+        name : "五一节日广告投放",
+        creative : "沙滩系列视频",
+        status : "审核中",
+        date : "2015-7-20"
+    },
+    {
+        name : "五一节日广告投放",
+        creative : "沙滩系列视频",
+        status : "审核中",
+        date : "2015-7-20"
+    }
+];
+
 Dao.prototype.rest = function(path, params, callback){
     var self = this;
     switch (path) {
@@ -370,6 +403,9 @@ Dao.prototype.rest = function(path, params, callback){
             break;
         case "/screens":
             callback(null, fakeScreens);
+            break;
+        case "/puttings":
+            callback(null, fakePuttings);
             break;
         default :
             callback({});

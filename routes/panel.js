@@ -10,8 +10,16 @@ router.get('/', function (req, res, next) {
                 res.redirect("/");
             })
         }else{
-            res.render("panel/panel", {
-                user_info : user_info
+            var dao = req.app.get("dao");
+            dao.rest("/puttings", {}, function(error, puttings){
+                if(error){
+                    puttings = [];
+                }else{
+                    res.render("panel/panel", {
+                        user_info : user_info,
+                        puttings : puttings
+                    });
+                }
             });
         }
     });

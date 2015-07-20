@@ -10,6 +10,7 @@
     background: #f2f4f8;
 }
 
+/*
 .putting-date{
     float: right;
 }
@@ -21,8 +22,9 @@
 #puttings-list li span{
     margin-left: 20px;
 }
+*/
 
 #puttings-list{
-    height: 300px;
+    max-height: 300px;
     overflow-y: scroll;
 }
