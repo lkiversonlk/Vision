@@ -21,11 +21,14 @@ The outdoor ad management system written in nodejs.
 * run the grunt default task
 
         grunt
-        
+          
 * write the config.yaml file in the project root dir
 
         nano config.yaml
-        
+  
+    config.yaml:         
+    > database: data
+    
 * at last, you should be able to run the server
 
         node bin/www
@@ -35,6 +38,3 @@ The outdoor ad management system written in nodejs.
         npm install -g supervisor
         supervisor bin/www
         
-        
-    
-
