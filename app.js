@@ -10,6 +10,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var panel = require("./routes/panel");
 var query = require("./routes/query");
+var utils = require("./src/utils");
 
 var app = express();
 
@@ -40,12 +41,12 @@ passport.deserializeUser(function (user, done) {
 
 var yaml = require("js-yaml");
 var fs = require("fs");
-var wiston = require("winston");
+//var winston = require("winston");
 var config;
 try {
     config = yaml.safeLoad(fs.readFileSync("config.yaml", "utf-8"));
 } catch (e) {
-    winston.log("error", "fail to load config.yaml, please confirm the configuration file is correct");
+    utils.logger.log("error", "fail to load config.yaml, please confirm the configuration file is correct");
     process.exit(1);
 }
 
@@ -54,7 +55,7 @@ try {
     var dao = new Dao(config.database);
     app.set("dao", dao);
 } catch (e) {
-    winston.log("error", "fail to initial database connection", e);
+    utils.logger.log("error", "fail to initial database connection");
     process.exit(1);
 }
 
@@ -71,11 +72,10 @@ passport.use(new LocalStrategy(
             password: passwd
         }, function (error, docs) {
             if (error) {
-                winston.log("error", "fail to search users database", e)
-                done(null, false, {message: "fail"});
+                done(null, false, { error : e});
             } else {
                 if (docs.length == 0) {
-                    done(null, false, {message: "incorrect password or non-existed usernmae"});
+                    done(null, false, { error : new Error("incorrect password or non-existed usernmae")});
                 } else {
                     done(null, docs[0]._id);
                 }

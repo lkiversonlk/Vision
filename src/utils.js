@@ -2,6 +2,17 @@
  * Created by kliu on 08/07/2015.
  */
 
+var winston = require("winston");
+
+var logger = new (winston.Logger)({
+    transports : [
+        new (winston.transports.Console)({level : 'error'}),
+        new (winston.transports.File)({
+            filename : "error.log"
+        })
+    ]
+});
+
 var utils = {
     loadUserInfo : function(req, callback){
         if(req.user){
@@ -22,7 +33,8 @@ var utils = {
         }else{
             callback({'error' : 'no user id'});
         }
-    }
+    },
+    logger : logger
 };
 
 module.exports = utils;

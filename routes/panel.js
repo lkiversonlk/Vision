@@ -6,6 +6,7 @@ var utils = require("../src/utils");
 router.get('/', function (req, res, next) {
     utils.loadUserInfo(req, function(error, user_info){
         if(error){
+            utils.logger.log("error", "unable to retrieve user infomation", error);
             req.session.destroy(function(){
                 res.redirect("/");
             })
@@ -13,6 +14,7 @@ router.get('/', function (req, res, next) {
             var dao = req.app.get("dao");
             dao.rest("/puttings", {}, function(error, puttings){
                 if(error){
+                    utils.logger.log("error", "unable to retrieve ")
                     puttings = [];
                 }else{
                     res.render("panel/panel", {
